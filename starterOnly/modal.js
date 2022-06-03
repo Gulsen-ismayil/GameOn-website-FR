@@ -15,54 +15,97 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 console.log(formData)
 const closeModel = document.querySelectorAll(".close");
+const tournoisLocation = document.getElementsByName("location");
+console.log(tournoisLocation)
+const checkBox1 = document.getElementById("checkbox1");
+console.log(checkBox1);
+const cpartiButton = document.querySelectorAll(".btn-submit")
+console.log(cpartiButton);
+const pageMerci = document.querySelectorAll(".pagemerci");
 
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closeModel.forEach((e) => e.addEventListener("click", closeModal));
+cpartiButton.forEach((e)=>e.addEventListener("click",merciModal))
 
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  pageMerci[0].style.display = "none";
+  formulaire.style.display = "block";
 }
 
 function closeModal() {
   modalbg.style.display = "none";
 }
 
+function merciModal() {
+  if(validate()){
+    formulaire.reset()
+    formulaire.style.display = "none";
+    pageMerci[0].style.display = "block";
+  }
+
+
+    // formulaire.style.display = "none";
+    // pageMerci[0].style.display = "block";
+}
+
 // function
 
 function validate() {
+  let isValide = true;
 
 if(validateName(formulaire.first.value)){ 
   formData[0].setAttribute("data-error-visible","false")
 }else {
   formData[0].setAttribute("data-error-visible","true")
+  isValide = false;
 }
 
 if(validateName(formulaire.last.value)){
   formData[1].setAttribute("data-error-visible","false")
 }else {
   formData[1].setAttribute("data-error-visible","true")
+  isValide = false;
 }
 
 if(validateEmail(formulaire.email.value)){
   formData[2].setAttribute("data-error-visible","false")
 }else {
   formData[2].setAttribute("data-error-visible","true")
+  isValide = false;
 }
 
 if(validateBirthdate(formulaire.birthdate.value)){
   formData[3].setAttribute("data-error-visible","false")
 }else {
   formData[3].setAttribute("data-error-visible","true")
+  isValide = false;
 }
 
-if(validateTournois(formulaire.quantity.value)){
+if(validateTournoisQuantity(formulaire.quantity.value)){
   formData[4].setAttribute("data-error-visible","false")
 }else {
   formData[4].setAttribute("data-error-visible","true")
+  isValide = false;
 }
+
+if(validateTournoisQuelle()){
+  formData[5].setAttribute("data-error-visible","false")
+}else {
+  formData[5].setAttribute("data-error-visible","true")
+  isValide = false;
+}
+
+if(validateCheckBoxOne(formulaire.checkbox)){
+  formData[6].setAttribute("data-error-visible","false")
+}else {
+  formData[6].setAttribute("data-error-visible","true")
+  isValide = false;
+}
+  return isValide;
 
 }
 
@@ -96,15 +139,40 @@ function validateBirthdate(e) {
   }
 }
 
-function validateTournois() {
-  if(quantity>0){
+function validateTournoisQuantity(e) {
+const number = new Number(e)
+
+  if(number>0){
     return true;
   }else {
     return false;
   }
 }
 
+function validateTournoisQuelle(){
+  
 
+  for(i=0;i<tournoisLocation.length;i++){
+   console.log(tournoisLocation[i])
+   const isCheck = tournoisLocation[i].checked;
+   console.log(isCheck)
+
+   if(isCheck){
+     return true;
+   }
+}
+return false;
+}
+
+function validateCheckBoxOne(){
+  const isCheck = checkBox1.checked;
+
+  if(isCheck) {
+    return true;
+  }else {
+    return false;
+  }
+}
 
 
 
