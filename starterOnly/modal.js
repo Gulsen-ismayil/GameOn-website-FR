@@ -27,9 +27,20 @@ const pageMerci = document.querySelectorAll(".pagemerci");
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closeModel.forEach((e) => e.addEventListener("click", closeModal));
-cpartiButton.forEach((e)=>e.addEventListener("click",merciModal))
+// cpartiButton.forEach((e)=>e.addEventListener("click",merciModal));
+formulaire.addEventListener("submit",formSubmit);
 
 // launch modal form
+function formSubmit(e) {
+  const valid = validate();
+ e.preventDefault();
+ if(valid){
+  formulaire.reset()
+  formulaire.style.display = "none";
+  pageMerci[0].style.display = "block";
+ }
+} 
+
 function launchModal() {
   modalbg.style.display = "block";
   pageMerci[0].style.display = "none";
@@ -40,17 +51,17 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-function merciModal() {
-  if(validate()){
-    formulaire.reset()
-    formulaire.style.display = "none";
-    pageMerci[0].style.display = "block";
-  }
+// function merciModal() {
+//   if(validate()){
+//     formulaire.reset()
+//     formulaire.style.display = "none";
+//     pageMerci[0].style.display = "block";
+//   }
 
 
     // formulaire.style.display = "none";
     // pageMerci[0].style.display = "block";
-}
+
 
 // function
 
@@ -139,7 +150,7 @@ function validateBirthdate(e) {
   }
 }
 
-function validateTournoisQuantity(e) {
+function validateTournoisQuantity(e) { 
 const number = new Number(e)
 
   if(number>0){

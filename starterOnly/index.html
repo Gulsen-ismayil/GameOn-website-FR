@@ -63,7 +63,7 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="event.preventDefault();return validate();"
+      
             >
               <div class="formData" data-error="ajouter plus de deux lettres">
                 <label>Prénom</label><br>
@@ -214,7 +214,15 @@
             </form>
 
             <div class="pagemerci">
-              <p>Merci pour votre inscription</p>
+              <p>Merci pour <br>
+                votre inscription</p>
+              <input
+              class="btn-submit"
+              type="submit"
+              class="button"
+              value="Fermer"
+            /> 
+
             </div>
 
           </div>

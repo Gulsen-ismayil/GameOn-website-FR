@@ -16,19 +16,31 @@ body {
   flex-direction: column;
   background-image: url("background.png");
   font-family: var(--font-default);
-  font-size: 18px;
+  /* font-size: 18px; */
   max-width: 1300px;
   margin: 0 auto;
 }
 
-p {
-  margin-bottom: 0;
-  padding: 0.5vw;
+main {
+  font-size: 130%;
+  font-weight: bolder;
+  color: black;
+  padding-top: 2.5vw;
+  padding-left: 2vw;
+  padding-right: 6vw;
+  margin: 1px 20px 15px;
+  border-radius: 2rem;
+  text-align: justify;
 }
 
-img {
+/* p {
+  margin-bottom: 0;
+  padding: 0.5vw;
+} */
+
+/* img {
   padding-right: 1rem;
-}
+} */
 
 .topnav {
   overflow: hidden;
@@ -46,9 +58,9 @@ img {
   color: #000000;
   text-align: center;
   padding: 12px 12px;
-  margin: 5px;
+  /* margin: 5px; */
   text-decoration: none;
-  font-size: 20px;
+  font-size: 16px;
   font-family: Roboto, sans-serif;
 }
 
@@ -56,6 +68,7 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav a.active {
@@ -69,14 +82,19 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  main {
+    padding-right: 0;
+  }
   .topnav a {display: none;}
   .topnav a.icon {
-    float: right;
+    /* float: right; */
     display: block;
+    color: #ff0000;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-right: 10px;
   }
-}
 
-@media screen and (max-width: 768px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -88,7 +106,28 @@ img {
     display: block;
     text-align: left;
   }
+
+  .topnav img {
+    width: 160px;
+    margin-top: 30px;
+    margin-left: 25px;
+  }
 }
+
+/* @media screen and (max-width: 768px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+} */
 
 
 
@@ -101,21 +140,8 @@ img {
   }
 } 
 
-main {
-  font-size: 130%;
-  font-weight: bolder;
-  color: black;
-  padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 1px 20px 15px;
-  border-radius: 2rem;
-  text-align: justify;
 
-
-}
-
-.modal-btn {
+/* .modal-btn {
   font-size: 145%;
   background: #fe142f;
   display: flex;
@@ -125,7 +151,7 @@ main {
   padding: 0.75rem 2.5rem;
   border-radius: 1rem;
   cursor: pointer;
-}
+} */
 
 .modal-btn:hover {
   background: #3876ac;
@@ -139,7 +165,7 @@ main {
 
 /* Modal form */
 
-.button {
+/* .button {
   background: #fe142f;
   margin-top: 0.5em;
   padding: 1em;
@@ -147,15 +173,15 @@ main {
   border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
-}
+} */
 
-.button:hover {
+/* .button:hover {
   background: #3876ac;
-}
+} */
 
-.smFont {
+/* .smFont {
   font-size: 16px;
-}
+} */
 
 .bground {
   display: none;
@@ -328,7 +354,7 @@ input[data-error]::after {
   margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
-  padding: 12px 82px;
+  padding: 12px 65px;
   color: #fff;
   cursor: pointer;
   border: 0;
@@ -337,100 +363,44 @@ input[data-error]::after {
 /* remercie  */
 
 .pagemerci {
-  background-color: black;
   color: white;
-  width: 100%;
-  height: 400px;
+  text-align: center;
+  height: 750px;
+  line-height: 45px;
+  /* margin: 5% auto; */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* custom select styles */
-.custom-select {
-  position: relative;
-  font-family: Arial;
-  font-size: 1.1rem;
+.pagemerci p {
+  padding: 75% 0;
   font-weight: normal;
+  font-size: 2rem;
 }
 
-.custom-select select {
-  display: none;
-}
-.select-selected {
-  background-color: #fff;
-}
 
-/* Style the arrow inside the select element: */
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 10px;
-  right: 13px;
-  width: 11px;
-  height: 11px;
-  border: 3px solid transparent;
-  border-bottom-color: #f00;
-  border-left-color: #f00;
-  transform: rotate(-48deg);
-  border-radius: 5px 0 5px 0;
-}
 
-/* Point the arrow upwards when the select box is open (active): */
-.select-selected.select-arrow-active:after {
-  transform: rotate(135deg);
-  top: 13px;
-}
 
-.select-items div,
-.select-selected {
-  color: #000;
-  padding: 11px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
-  border-radius: 8px;
-  height: 48px;
-}
 
-/* Style items (options): */
-.select-items {
-  position: absolute;
-  background-color: #fff;
-  top: 89%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
 
-/* Hide the items when the select box is closed: */
-.select-hide {
-  display: none;
-}
 
-.select-items div:hover,
-.same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-/* custom select end */
-.text-label {
-  font-weight: normal;
-  font-size: 16px;
-}
+
+
+
+
+
+
+
+
+/* modif css */
+
+
+
+
+
+
+
+
+
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -447,7 +417,7 @@ input[data-error]::after {
   text-align: left;
   min-width: 424px;
 }
-.hero-content::after {
+/* .hero-content::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -459,9 +429,9 @@ input[data-error]::after {
 .hero-content > * {
   position: relative;
   z-index: 1;
-}
+} */
 .hero-headline {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: normal;
   white-space: nowrap;
 }
@@ -469,13 +439,12 @@ input[data-error]::after {
   width: 146%;
   font-weight: normal;
   margin-top: 57px;
-  padding: 0;
 }
 .btn-signup {
-  outline: none;
+  /* outline: none; */
   text-transform: capitalize;
-  font-size: 1.3rem;
-  padding: 15px 23px;
+  font-size: 23px;
+  padding: 11px 33px;
   margin: 0;
   margin-top: 59px;
 }
@@ -484,10 +453,11 @@ input[data-error]::after {
 }
 .hero-img img {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   display: block;
-  padding: 0;
+  /* padding: 0; */
 }
+
 .copyrights {
   color: #fe142f;
   padding: 0;
@@ -498,6 +468,7 @@ input[data-error]::after {
 .hero-section > .btn-signup {
   display: none;
 }
+
 footer {
   padding-left: 2vw;
   padding-right: 2vw;
@@ -549,6 +520,16 @@ footer {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .hero-headline {
+  font-size: 3.3rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
   }
 }
 
