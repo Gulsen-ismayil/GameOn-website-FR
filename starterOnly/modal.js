@@ -9,19 +9,16 @@ function editNav() {
 
 // DOM Elements
 const formulaire = document.querySelector("form");
-console.log(formulaire);
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-console.log(formData)
 const closeModel = document.querySelectorAll(".close");
 const tournoisLocation = document.getElementsByName("location");
-console.log(tournoisLocation)
 const checkBox1 = document.getElementById("checkbox1");
-console.log(checkBox1);
-const cpartiButton = document.querySelectorAll(".btn-submit")
-console.log(cpartiButton);
+const cpartiButton = document.querySelector(".btn-submit-cparti");
+const fermer = document.querySelector(".btn-submit-fermer");
 const pageMerci = document.querySelectorAll(".pagemerci");
+const iconFabars = document.querySelector(".icon");
 
 
 // launch modal event
@@ -29,8 +26,15 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closeModel.forEach((e) => e.addEventListener("click", closeModal));
 // cpartiButton.forEach((e)=>e.addEventListener("click",merciModal));
 formulaire.addEventListener("submit",formSubmit);
+fermer.addEventListener("click",launchModalFermer);
+iconFabars.addEventListener("click",responsiveIcon);
+
 
 // launch modal form
+function responsiveIcon() {
+editNav();
+}
+
 function formSubmit(e) {
   const valid = validate();
  e.preventDefault();
@@ -45,6 +49,11 @@ function launchModal() {
   modalbg.style.display = "block";
   pageMerci[0].style.display = "none";
   formulaire.style.display = "block";
+}
+
+function launchModalFermer(){
+  modalbg.style.display = "none";
+  pageMerci[0].style.display = "none";
 }
 
 function closeModal() {
@@ -74,7 +83,7 @@ if(validateName(formulaire.first.value)){
   formData[0].setAttribute("data-error-visible","true")
   isValide = false;
 }
-
+ 
 if(validateName(formulaire.last.value)){
   formData[1].setAttribute("data-error-visible","false")
 }else {
@@ -123,7 +132,7 @@ if(validateCheckBoxOne(formulaire.checkbox)){
 function validateName(name) {
   const text = new Text(name);
   console.log(text);
-  if(text.length>2){
+  if(text.length>1  ){
     return true;
   }else {
     return false;
@@ -164,9 +173,7 @@ function validateTournoisQuelle(){
   
 
   for(i=0;i<tournoisLocation.length;i++){
-   console.log(tournoisLocation[i])
    const isCheck = tournoisLocation[i].checked;
-   console.log(isCheck)
 
    if(isCheck){
      return true;
